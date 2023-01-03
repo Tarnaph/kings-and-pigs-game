@@ -67,7 +67,6 @@ if(estado != "morto")
 	}
 }
 
-
 switch(estado)
 {
 	case "entrando":
@@ -120,12 +119,10 @@ switch(estado)
 	break;
 
 	case "hit":
-		criaBalao(5,40,0,oBalaoHit);
 		_hit = true;
 		 muda_sprite(s_players_hit);
 		if (image_index >= image_number-vel_sprite(s_players_hit))
 		{
-			destroiBalao(oBalaoHit);	
 			global.vida -= 1;
 			_hit = false;
 			if(global.vida <= 0) {estado = "morto"; global.diamantes -= 1;} else {estado = "idle";}

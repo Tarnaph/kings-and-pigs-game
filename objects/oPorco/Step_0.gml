@@ -12,7 +12,7 @@ switch(estado)
 	break;
 	
 	case "ligacanhao":
-		criaBalao(5,34,0,oBalaoAtack);
+		
 		muda_sprite(s_porco_fosforo_canhao);
 		if (image_index >= image_number-vel_sprite(s_porco_fosforo_canhao))
 		{
@@ -22,7 +22,7 @@ switch(estado)
 				_canhao.estado ="on";
 			}
 			estado = "idle";
-			destroiBalao(oBalaoAtack);
+			
 		}
 	break;
 	
@@ -34,7 +34,6 @@ switch(estado)
 	case "patrulha":
 		ver_player_e_ataca("ataca",0);
 		interagir_com_objeto(oCanhao, "ligacanhao",false);
-		
 		interagir_com_objeto(oBomba, "pegabomba",true);
 		patrulhar(s_porco_run, s_porco_idle);
 	break;
@@ -44,28 +43,25 @@ switch(estado)
 	break;
 	
 	case "ataca":
-		criaBalao(5,34,3,oBalaoAtack);
+		
 		velh = 3* image_xscale;
 		muda_sprite(s_porco_attack);
 		if (image_index >= image_number-vel_sprite(s_porco_attack))
 		{
-			
 			velh = 0;
-			estado = "idle";
-			destroiBalao(oBalaoAtack);
-			_balao = false;
+			estado = "idle";		
 		}
 	
 	break;
 	
 	case "dano":
-		criaBalao(5,34,0,oBalaoHit);
+		
 		velh = 0;
 		muda_sprite(s_porco_hit);
 		if (image_index >= image_number-vel_sprite(s_porco_hit))
 		{
 			_vida -= 1;
-			destroiBalao(oBalaoHit);
+		
 			if(_vida <= 0) {estado = "morto";} else {estado = "patrulha";}
 		}
 		
