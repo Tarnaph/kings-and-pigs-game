@@ -60,10 +60,17 @@ if(estado != "morto")
 	
 	// Pega pocao de vida
 	_p_vida = instance_place(x,y,oPocaoCoracao);
-	if(_p_vida && global.vida <= 3)
+	if(_p_vida && global._vida <= 2)
 	{ 
-		global.vida += 1;
+		global._vida += 1;
 		instance_destroy(_p_vida);
+	}
+	
+	_p_diamante = instance_place(x,y,oConsulDiamante);
+	if(_p_diamante && global._diamantes <= 2)
+	{ 
+		global._diamantes += 1;
+		instance_destroy(_p_diamante);
 	}
 }
 
@@ -123,9 +130,9 @@ switch(estado)
 		 muda_sprite(s_players_hit);
 		if (image_index >= image_number-vel_sprite(s_players_hit))
 		{
-			global.vida -= 1;
+			global._vida -= 1;
 			_hit = false;
-			if(global.vida <= 0) {estado = "morto"; global.diamantes -= 1;} else {estado = "idle";}
+			if(global._vida <= 0) {estado = "morto"; global._diamantes -= 1;} else {estado = "idle";}
 		}
 		
 	break;

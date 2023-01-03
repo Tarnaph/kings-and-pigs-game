@@ -53,6 +53,7 @@
     {"id":{"name":"s_entidade_dead","path":"sprites/s_entidade_dead/s_entidade_dead.yy",},"order":4,},
     {"id":{"name":"s_gui_diamante","path":"sprites/s_gui_diamante/s_gui_diamante.yy",},"order":3,},
     {"id":{"name":"s_level_2","path":"sprites/s_level_2/s_level_2.yy",},"order":1,},
+    {"id":{"name":"Room12","path":"rooms/Room12/Room12.yy",},"order":1,},
     {"id":{"name":"s_entidade_idle","path":"sprites/s_entidade_idle/s_entidade_idle.yy",},"order":0,},
     {"id":{"name":"s_baloes_atack","path":"sprites/s_baloes_atack/s_baloes_atack.yy",},"order":0,},
     {"id":{"name":"oSpikes","path":"objects/oSpikes/oSpikes.yy",},"order":4,},
@@ -60,6 +61,7 @@
     {"id":{"name":"oBola","path":"objects/oBola/oBola.yy",},"order":0,},
     {"id":{"name":"s_artefatos_bomba_idle","path":"sprites/s_artefatos_bomba_idle/s_artefatos_bomba_idle.yy",},"order":0,},
     {"id":{"name":"oPorco","path":"objects/oPorco/oPorco.yy",},"order":0,},
+    {"id":{"name":"Script2","path":"scripts/Script2/Script2.yy",},"order":1,},
     {"id":{"name":"s_porco_bomber_pick","path":"sprites/s_porco_bomber_pick/s_porco_bomber_pick.yy",},"order":2,},
     {"id":{"name":"s_players_dash","path":"sprites/s_players_dash/s_players_dash.yy",},"order":7,},
     {"id":{"name":"oInimigoPai","path":"objects/oInimigoPai/oInimigoPai.yy",},"order":9,},
@@ -104,6 +106,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Room12","path":"rooms/Room12/Room12.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},

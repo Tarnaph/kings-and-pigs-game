@@ -6,9 +6,9 @@ vel = 2;							// velocidade base
 grav = .5;							// gravidade
 
 // atributos vida
-vida = 3;							// vida max
-_vida = vida;						// vida temporaria
-global.vida = vida;
+//vida = 3;							// vida max
+//_vida = vida;						// vida temporaria
+//global.vida = _vida;
 
 
 visao = 50;							// alcance do golpe
