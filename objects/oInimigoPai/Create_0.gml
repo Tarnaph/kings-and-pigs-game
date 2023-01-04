@@ -9,6 +9,8 @@ grav = .5;							// gravidade
 vida = 2;							// vida max
 _vida = vida;						// vida temporaria
 
+loot = 1;
+
 balao = false;
 _balao = false;
 

@@ -75,16 +75,17 @@ leva_dano_de_projeto = function(_obj,_estado,_destroi)
 	}
 }
 
-contadorInvulneravel = function(_n)
+/*contadorInvulneravel = function(_n)
 {
-	if(_hit == true){ _invulneravel -= _n; }
-	if(_invulneravel <= 0)
+	if(_hit == true){ _invulneravel -= _n; image_alpha = .2;}
+	if(_invulneravel < invulneravel) { _invulneravel--};
+		if(_invulneravel <= 0)
 	{
 		image_alpha = 1;
 		_hit = false;
 		_invulneravel = invulneravel;
 	}
-}
+}*/
 
 // attack - se cair na cabeça de um inimigo da dano
 ataqueDePulo = function()
@@ -114,8 +115,8 @@ dash = function()
 	if(_inimigo && _inimigo.estado != "dano" &&  _inimigo.estado != "morto" && estaNoChao())
 	{
 		_inimigo.estado = "dano";
+		velh = -velh;
 	}
-
 }
 
 // Cria balao

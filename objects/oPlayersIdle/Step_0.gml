@@ -1,7 +1,7 @@
 // morto
 if(estado != "morto")
 {
-	if(_hit == false)
+	if(estado != "hit")
 	{
 		// Controladores do personagem
 		var _up,_left,_right,_down,_jump,_attack,_dash;
@@ -23,7 +23,11 @@ if(estado != "morto")
 			global._timeJump -= 80;
 			velv = -velj;
 		}
-		if(_dash && estaNoChao() &&  global._timeDash >= 120) { 
+		if(_dash 
+		/* && estaNoChao()*/ 
+		&& global._timeDash >= 120
+		&& estado != "fallwall"
+		) { 
 			estado = "dash";
 			global._timeDash -= 20;
 		}
@@ -33,8 +37,8 @@ if(estado != "morto")
 
 		// sprites
 		if (velh != 0 && estaNoChao() && estado != "dash")  { estado = "anda";  }
-		if (velv < 0  && !estaNoChao()) { estado = "pula";  }	
-		if (velv > 0  && !estaNoChao()) { estado = "cai";  }	
+		if (velv < 0  && !estaNoChao() && estado != "dash") { estado = "pula";  }	
+		if (velv > 0  && !estaNoChao() && estado != "dash") { estado = "cai";  }	
 		if(_attack && estaNoChao())     { estado = "ataca"; }
 		
 	
@@ -47,8 +51,11 @@ if(estado != "morto")
 		&& estado != "entrando")  
 		{ estado = "idle";  }
 	
-		leva_dano_de_inimigo(oInimigoPai,"hit",false);
-		leva_dano_de_projeto(oProjetoPai,"hit",false);
+		if (_hit == false)
+		{
+			leva_dano_de_inimigo(oInimigoPai,"hit",false);
+			leva_dano_de_projeto(oProjetoPai,"hit",false);
+		}
 		
 		// entra na porta
 		if(_up && estaNoChao())
@@ -62,7 +69,8 @@ if(estado != "morto")
 			}
 		}
 	}
-	contadorInvulneravel(1);
+	
+	
 	
 	// fallwall
 	if(estaNaParede() 
@@ -81,16 +89,35 @@ if(estado != "morto")
 		global._vida += 1;
 		instance_destroy(_p_vida);
 	}
-	
+	// Pega pocao de vida
 	_p_diamante = instance_place(x,y,oConsulDiamante);
 	if(_p_diamante && global._diamantes <= 2)
 	{ 
 		global._diamantes += 1;
 		instance_destroy(_p_diamante);
 	}
+	
+	// Pega coin
+	_p_coin = instance_place(x,y,oCoin);
+	if(_p_coin)
+	{ 
+		global._coin += 1;
+		instance_destroy(_p_coin);
+	}
 }
 
-show_debug_message(global._timeDash);
+#region contadores
+// contador de invulneravel
+	if(_hit == true){ _invulneravel -= 1; image_alpha = .7;}
+	if(_invulneravel < invulneravel) { _invulneravel--};
+		if(_invulneravel <= 0)
+	{
+		image_alpha = 1;
+		_hit = false;
+		_invulneravel = invulneravel;
+	}
+
+#endregion
 
 switch(estado)
 {
@@ -124,7 +151,7 @@ switch(estado)
 	break;
 	
 	case "ataca":
-		muda_sprite(s_players_attack);
+		//muda_sprite(s_players_attack);
 		if (image_index >= image_number-vel_sprite(s_players_attack)){ estado = "idle";}
 	break;
 	
@@ -137,7 +164,7 @@ switch(estado)
 		if (image_index >= image_number-vel_sprite(s_players_attack))
 		{
 			image_alpha = 1;
-			_hit = false;
+			//_hit = false;
 			estado = "idle";
 		}
 	break;
@@ -148,7 +175,7 @@ switch(estado)
 		if (image_index >= image_number-vel_sprite(s_players_hit))
 		{
 			global._vida -= 1;
-			_hit = false;
+			//_hit = false;
 			if(global._vida <= 0) {estado = "morto"; global._diamantes -= 1;} else {estado = "idle";}
 		}
 		
@@ -173,4 +200,3 @@ switch(estado)
 }
 
 
-// MUDAR O NOME DE _HIT PARA ALGO MAIS FACIL	

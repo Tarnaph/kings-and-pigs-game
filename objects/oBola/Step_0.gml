@@ -6,7 +6,6 @@ switch(estado)
 	case "idle":
 		// transforma bola parada em bomba muahahaha
 		if (velh == 0) { instance_change(oBomba, true); }
-
 		if(velh > 0){ estado = "voando";}
 	break;
 	

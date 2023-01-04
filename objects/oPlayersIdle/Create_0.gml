@@ -21,7 +21,7 @@ _balao = false;
 
 
 _hit = false;							// inicia o contador da invulneravel
-invulneravel =  room_speed * 2;			// tempo invulneravel base
+invulneravel =  room_speed * 4;			// tempo invulneravel base
 _invulneravel = invulneravel;		// tempo invulneravel temporario
 
 time = room_speed * 2;					// tempo de espera base

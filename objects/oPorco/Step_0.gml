@@ -72,8 +72,9 @@ switch(estado)
 		if (image_index >= image_number-vel_sprite(s_porco_hit))
 		{
 			image_speed = 0;
-			image_index = image_number-vel_sprite(s_porco_hit);
+			image_index = image_number-vel_sprite(s_porco_hit);	
+			criaLot();
+			instance_destroy();
 		}
-		
 	break;
 }
