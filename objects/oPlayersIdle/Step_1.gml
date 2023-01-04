@@ -3,6 +3,7 @@ inputs = {
 	up:ord("W"),
 	left:ord("A"),
 	right:ord("D"),
+	down:ord("S"),
 	jump:vk_space,
 	dash:ord("F"),
 	attack:ord("J")
@@ -108,7 +109,13 @@ ataqueComMartelo = function()
 }*/
 dash = function()
 {
-	velh = 3 * image_xscale;
+	velh = 6 * image_xscale;
+	var _inimigo = instance_place(x,y, oInimigoPai );
+	if(_inimigo && _inimigo.estado != "dano" &&  _inimigo.estado != "morto" && estaNoChao())
+	{
+		_inimigo.estado = "dano";
+	}
+
 }
 
 // Cria balao

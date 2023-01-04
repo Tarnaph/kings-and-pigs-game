@@ -4,24 +4,39 @@ if(estado != "morto")
 	if(_hit == false)
 	{
 		// Controladores do personagem
-		var _up,_left,_right,_jump,_attack,_dash;
+		var _up,_left,_right,_down,_jump,_attack,_dash;
 		_up = keyboard_check(inputs.up);
 		_left = keyboard_check(inputs.left);
 		_right = keyboard_check(inputs.right);
+		_down = keyboard_check(inputs.down);
 		_jump = keyboard_check(inputs.jump);
 		_attack = keyboard_check(inputs.attack);
 		_dash = keyboard_check(inputs.dash);
 		
-		if(_jump && estaNoChao()){velv = -velj; }
-
+		/* Timer dash e jump  */
+		if (global._timeJump < 120) { global._timeJump --}
+		if (global._timeDash < 120) { global._timeDash --}
+		if(global._timeJump <= 0 ) {global._timeJump = global.timeJump;}
+		if(global._timeDash <= 0 ) {global._timeDash = global.timeDash;}
+		
+		if(_jump && estaNoChao() && global._timeJump >= 120){
+			global._timeJump -= 80;
+			velv = -velj;
+		}
+		if(_dash && estaNoChao() &&  global._timeDash >= 120) { 
+			estado = "dash";
+			global._timeDash -= 20;
+		}
+		
+		//anda 
 		velh = (_right - _left) * vel;
 
 		// sprites
-		if (velh != 0 && estaNoChao())  { estado = "anda";  }
+		if (velh != 0 && estaNoChao() && estado != "dash")  { estado = "anda";  }
 		if (velv < 0  && !estaNoChao()) { estado = "pula";  }	
 		if (velv > 0  && !estaNoChao()) { estado = "cai";  }	
 		if(_attack && estaNoChao())     { estado = "ataca"; }
-		if(_dash && estaNoChao() && _dashMaximo > 0)       { estado = "dash"; }
+		
 	
 		if (velh = 0  && estaNoChao() 
 		&& estado != "hit" 
@@ -52,10 +67,11 @@ if(estado != "morto")
 	// fallwall
 	if(estaNaParede() 
 		&& !estaNoChao() 
+		//&& image_xscale == direcao
 		&& velv > 0 
 		&& estado != "hit"
-		&& estado != "morto"
-		&& image_xscale == direcao) {estado = "fallwall";}
+		&& estado != "morto")
+		{estado = "fallwall";}
 	if(!estaNaParede()){ grav = .5;}
 	
 	// Pega pocao de vida
@@ -73,6 +89,8 @@ if(estado != "morto")
 		instance_destroy(_p_diamante);
 	}
 }
+
+show_debug_message(global._timeDash);
 
 switch(estado)
 {
@@ -111,14 +129,13 @@ switch(estado)
 	break;
 	
 	case "dash":
-		
-		muda_sprite(s_players_dash);
+
+		muda_sprite(s_players_attack);
 		dash();
 		_hit = true;
 		image_alpha = .5;
-		if (image_index >= image_number-vel_sprite(s_players_dash))
+		if (image_index >= image_number-vel_sprite(s_players_attack))
 		{
-			_dashMaximo -= 1;
 			image_alpha = 1;
 			_hit = false;
 			estado = "idle";
@@ -139,9 +156,9 @@ switch(estado)
 	
 	case "fallwall":
 		muda_sprite(s_players_fall_wall);
-		//grav = .2;
 		velv = .2;
-		if(keyboard_check(vk_space)){velv = -velj * 1.1 ;   direcao *= -1; }
+		if(keyboard_check(vk_space) && global._timeJump >= 120)
+		{velv = -velj * 1.1 ;   direcao *= -1; global._timeJump -= 80;}
 	break;
 
 	case "morto":

@@ -19,7 +19,6 @@ _direcao = 1;
 balao = false;
 _balao = false;
 
-_dashMaximo = 3;
 
 _hit = false;							// inicia o contador da invulneravel
 invulneravel =  room_speed * 2;			// tempo invulneravel base

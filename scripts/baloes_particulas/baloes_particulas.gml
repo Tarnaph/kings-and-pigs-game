@@ -20,3 +20,12 @@ function criar_balao(_obj,_s, _y){
 		draw_sprite(_s, image_index, a, b- _y);
 	}
 }
+
+function criar_box_skill(_obj,_s,_x, _y){
+	with(self)
+	{
+	    a = x;
+	    b = y;
+		draw_sprite(_s, image_index, a + _x , b + _y);
+	}
+}

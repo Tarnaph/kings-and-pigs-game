@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "Baloes",
+  "name": "baloes_particulas",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {
