@@ -101,18 +101,25 @@ desenhar = function(_sprit, _x, _y)
 	//draw_sprite_ext(_sprit,5*(get_timer() /1000000),_x, _y,_scale,2,0,c_white,1);
 }
 
+// Loot
 criaLot = function()
 {
 	if loot == 1
 	{
-		_r = random(5);
+		_r = random(1);
 		repeat(_r+1)
 		{
 			var _coin = instance_create_layer(x, y, layer, oCoin );
 			_coin.velh = random_range(-12,12);
 			_coin.velv = random_range(-10,-5);
+			
+			_vida = instance_create_layer(x, y-20, layer, oPocaoCoracao );
+			_vida.velh = random_range(-12,12);
+			_vida.velv = random_range(-10,-5);
 		}
-		if global._vida == 1{
+		/*
+		if global._vida == 1
+		{
 			_x = choose(true, false);
 			if _x == true 
 			{
@@ -120,7 +127,7 @@ criaLot = function()
 				_vida.velh = random_range(-12,12);
 				_vida.velv = random_range(-10,-5);
 			}
-		}
+		}*/
 		loot = 0;
 	}
 }

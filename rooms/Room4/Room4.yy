@@ -36,6 +36,7 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6B5EAF87","properties":[],"isDnd":false,"objectId":{"name":"oSpikes","path":"objects/oSpikes/oSpikes.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":-90.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":352.0,"y":127.5,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_6F1E45E5","properties":[],"isDnd":false,"objectId":{"name":"oSpikes","path":"objects/oSpikes/oSpikes.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":90.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":416.5,"y":171.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7870301E","properties":[],"isDnd":false,"objectId":{"name":"oSpikes","path":"objects/oSpikes/oSpikes.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":180.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":630.0,"y":128.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_157E4589","properties":[],"isDnd":false,"objectId":{"name":"oPorcoBomber","path":"objects/oPorcoBomber/oPorcoBomber.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":544.0,"y":320.0,},
       ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"portas","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4091B414_3","properties":[
@@ -136,6 +137,7 @@
     {"name":"inst_6B5EAF87","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_6F1E45E5","path":"rooms/Room4/Room4.yy",},
     {"name":"inst_7870301E","path":"rooms/Room4/Room4.yy",},
+    {"name":"inst_157E4589","path":"rooms/Room4/Room4.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

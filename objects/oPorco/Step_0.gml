@@ -44,12 +44,12 @@ switch(estado)
 	
 	case "ataca":
 		
-		velh = 3* image_xscale;
+		//velh = 3* image_xscale;
 		muda_sprite(s_porco_attack);
 		if (image_index >= image_number-vel_sprite(s_porco_attack))
 		{
 			velh = 0;
-			estado = "idle";		
+			//estado = "idle";		
 		}
 	
 	break;

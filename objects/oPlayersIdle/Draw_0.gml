@@ -9,7 +9,7 @@ if( estado == "hit"){ criar_balao(oPlayersIdle,s_balao_hit,50);}
 if( estado == "pula"){ criar_balao(oPlayersIdle,s_baloes_pulo,30);}
 if( estado == "morto"){ criar_balao(oPlayersIdle,s_baloes_no,30);}
 
-/*Bom skill  */
+/*Box skill  */
 //if(global._timeJump <= 120) {criar_box_skill(oPlayersIdle,s_box_skill_jump_off, 0, 5); }
 if(global._timeJump >= 120) {criar_box_skill(oPlayersIdle,s_box_skill_jump_on, 0, 5); }
 

@@ -13,78 +13,72 @@ if(estado != "morto")
 		_attack = keyboard_check(inputs.attack);
 		_dash = keyboard_check(inputs.dash);
 		
-		/* Timer dash e jump  */
-		if (global._timeJump < 120) { global._timeJump --}
-		if (global._timeDash < 120) { global._timeDash --}
-		if(global._timeJump <= 0 ) {global._timeJump = global.timeJump;}
-		if(global._timeDash <= 0 ) {global._timeDash = global.timeDash;}
-		
-		if(_jump && estaNoChao() && global._timeJump >= 120){
-			global._timeJump -= 80;
-			velv = -velj;
-		}
-		if(_dash 
-		/* && estaNoChao()*/ 
-		&& global._timeDash >= 120
-		&& estado != "fallwall"
-		) { 
-			estado = "dash";
-			global._timeDash -= 20;
+		// Game pad
+		if(gamepad_is_connected(0))
+		{
+			_up = gamepad_button_check(0,gp_padu);
+			_left = gamepad_button_check(0,gp_padl);
+			_right = gamepad_button_check(0,gp_padr);
+			_down = gamepad_button_check(0,gp_padd);
+			_jump = gamepad_button_check(0,gp_face1);
+			_attack = gamepad_button_check(0,gp_face2);
+			_dash = gamepad_button_check(0,gp_face3);
+			andar(_right, _left);
 		}
 		
-		//anda 
-		velh = (_right - _left) * vel;
-
-		// sprites
+		// Cronometro Jump
+		cronometroJump();
+		
+		// Cronometro Dash
+		cronometroDash();
+		
+		// Cronometro Invulnerabilidade
+		cronometroInvulneravel();
+		
+		// Pular do Chão
+		pular(_jump);
+		
+		// Pular da parede
+		
+		// Andar
+		andar(_right, _left);
+		
+		// Dahsar
+		dashar(_dash,"dash")
+		
+		// Entra na porta
+		entrarPorta(_up);
+	
+		// Mudar os estados
 		if (velh != 0 && estaNoChao() && estado != "dash")  { estado = "anda";  }
 		if (velv < 0  && !estaNoChao() && estado != "dash") { estado = "pula";  }	
-		if (velv > 0  && !estaNoChao() && estado != "dash") { estado = "cai";  }	
+		if (velv > 0  && !estaNoChao() && estado != "dash") { estado = "cai";   }	
 		if(_attack && estaNoChao())     { estado = "ataca"; }
-		
-	
 		if (velh = 0  && estaNoChao() 
-		&& estado != "hit" 
-		&& estado != "morto" 
-		&& estado != "dash" 
-		&& estado != "ataca"
-		&& estado != "saindo"
-		&& estado != "entrando")  
+			&& estado != "hit" 
+			&& estado != "morto" 
+			&& estado != "dash" 
+			&& estado != "ataca"
+			&& estado != "saindo"
+			&& estado != "entrando")  
 		{ estado = "idle";  }
+		if(estaNaParede() 
+			&& !estaNoChao() 
+			//&& image_xscale == direcao
+			&& velv > 0 
+			&& estado != "hit"
+			&& estado != "morto")
+		{estado = "fallwall";}
 	
-		if (_hit == false)
-		{
-			leva_dano_de_inimigo(oInimigoPai,"hit",false);
-			leva_dano_de_projeto(oProjetoPai,"hit",false);
-		}
+		// Sistema de dano
+		if (global._timeInvulneravel >= global.timeInvulneravel) { leva_dano_de_inimigo(oInimigoPai,"hit",false); leva_dano_de_projeto(oProjetoPai,"hit",false); }
 		
-		// entra na porta
-		if(_up && estaNoChao())
-		{
-			_tocou = instance_place(x,y,oPorta);
-			if(_tocou && _tocou.saida == true)
-			{ 
-				velh = 0;
-				_tocou.estado = "open"; 
-				estado = "entrando";
-			}
-		}
 	}
 	
-	
-	
-	// fallwall
-	if(estaNaParede() 
-		&& !estaNoChao() 
-		//&& image_xscale == direcao
-		&& velv > 0 
-		&& estado != "hit"
-		&& estado != "morto")
-		{estado = "fallwall";}
-	if(!estaNaParede()){ grav = .5;}
-	
+#region consumiveis	
 	// Pega pocao de vida
 	_p_vida = instance_place(x,y,oPocaoCoracao);
-	if(_p_vida && global._vida <= 2)
+	if(_p_vida && global._vida <= 30)
 	{ 
 		global._vida += 1;
 		instance_destroy(_p_vida);
@@ -104,20 +98,11 @@ if(estado != "morto")
 		global._coin += 1;
 		instance_destroy(_p_coin);
 	}
+#endregion
 }
 
-#region contadores
-// contador de invulneravel
-	if(_hit == true){ _invulneravel -= 1; image_alpha = .7;}
-	if(_invulneravel < invulneravel) { _invulneravel--};
-		if(_invulneravel <= 0)
-	{
-		image_alpha = 1;
-		_hit = false;
-		_invulneravel = invulneravel;
-	}
+	
 
-#endregion
 
 switch(estado)
 {
@@ -147,35 +132,23 @@ switch(estado)
 	case "cai":
 		muda_sprite(s_players_fall);
 		ataqueDePulo();
-		
 	break;
 	
 	case "ataca":
-		//muda_sprite(s_players_attack);
-		if (image_index >= image_number-vel_sprite(s_players_attack)){ estado = "idle";}
+		// nada
 	break;
 	
 	case "dash":
-
 		muda_sprite(s_players_attack);
 		dash();
-		_hit = true;
-		image_alpha = .5;
-		if (image_index >= image_number-vel_sprite(s_players_attack))
-		{
-			image_alpha = 1;
-			//_hit = false;
-			estado = "idle";
-		}
+		if (image_index >= image_number-vel_sprite(s_players_attack)){ estado = "idle"; }
 	break;
 
 	case "hit":
-		_hit = true;
 		 muda_sprite(s_players_hit);
 		if (image_index >= image_number-vel_sprite(s_players_hit))
 		{
 			global._vida -= 1;
-			//_hit = false;
 			if(global._vida <= 0) {estado = "morto"; global._diamantes -= 1;} else {estado = "idle";}
 		}
 		
@@ -184,8 +157,7 @@ switch(estado)
 	case "fallwall":
 		muda_sprite(s_players_fall_wall);
 		velv = .2;
-		if(keyboard_check(vk_space) && global._timeJump >= 120)
-		{velv = -velj * 1.1 ;   direcao *= -1; global._timeJump -= 80;}
+		pularDaParede(_jump);
 	break;
 
 	case "morto":

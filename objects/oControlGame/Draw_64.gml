@@ -3,7 +3,7 @@ var _a = 20;
 var _b = 20
 var _c = 35;
 /* Vida */
-desenhar(s_gui_bar,_a, _b, 2);
+//desenhar(s_gui_bar,_a, _b, 2);
 repeat(global._vida){
 desenhar(s_gui_coracao,_a + 17, _b + 5, 2);
 	_a +=_c;
@@ -15,7 +15,7 @@ var _x = 20;
 var _y = 20
 var _qt = 35;
 /* Diamantes */ 
-desenhar(s_gui_bar,_x , _y + 40, 2);
+//desenhar(s_gui_bar,_x , _y + 40, 2);
 repeat(global._diamantes){
 desenhar(s_gui_diamante,_x + 18, _y + 47, 2);
 	_x +=_qt;
