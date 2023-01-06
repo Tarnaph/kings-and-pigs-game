@@ -2,7 +2,7 @@ global.coin = 0;
 global._coin = global.coin;
 
 
-global.diamantes = 1;
+global.diamantes = 2;
 global._diamantes = global.diamantes;
 
 global.vida = 2;

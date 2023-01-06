@@ -21,7 +21,7 @@ switch(estado)
 	case "boom":
 		velh = 0;
 		muda_sprite(s_artefatos_bomba_boom);
-		criaShakeCamera(2);
+		criaShakeCamera(1);
 		if (image_index >= image_number-vel_sprite(s_artefatos_bomba_boom))
 		{
 			 

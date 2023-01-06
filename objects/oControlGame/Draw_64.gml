@@ -27,15 +27,21 @@ if (global._vida <= 0 && global._diamantes > 0)
 {
 	var _wgui = display_get_gui_width();
 	var _hgui = display_get_gui_height();
-	draw_text(_wgui/2, _hgui/2, "PRESS ENTER TO RESTART");
-	if(keyboard_check(vk_enter)){room_restart(); global._vida = global.vida; }
+	desenhar(s_gui_start,_wgui/2, _hgui/2, 2);
+	if(keyboard_check(vk_anykey)){room_restart(); global._vida = global.vida; }
+	if(gamepad_button_check(0,gp_start)){room_restart(); global._vida = global.vida; }
 }
-if( global._diamantes == 0) {
+if( global._diamantes == 0)
+{
 	var _wgui = display_get_gui_width();
 	var _hgui = display_get_gui_height();
-	draw_text(_wgui/2, _hgui/2, "GAMER OVER");
+	desenhar(s_gui_gamer_over,_wgui/2, _hgui/2, 2);
+	if(keyboard_check(vk_anykey)){game_restart();}
+	if(gamepad_button_check(0,gp_start)){game_restart();}
 }
 /*-----------------------------------------------*/
-
-
-
+/*
+var _wgui = display_get_gui_width();
+	var _hgui = display_get_gui_height();
+	desenhar(s_gui_dialogo,_wgui/2, _hgui, 2);
+*/

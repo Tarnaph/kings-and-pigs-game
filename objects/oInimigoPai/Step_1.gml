@@ -106,8 +106,8 @@ criaLot = function()
 {
 	if loot == 1
 	{
-		_r = random(1);
-		repeat(_r+1)
+		_r = random(2);
+		repeat(_r)
 		{
 			var _coin = instance_create_layer(x, y, layer, oCoin );
 			_coin.velh = random_range(-12,12);
