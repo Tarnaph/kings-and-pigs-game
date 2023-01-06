@@ -14,7 +14,7 @@ function desenhaFundoPreto()
 
 
 if (_dialogo == false && dialogo == false)
-{	
+{
 	var _vi =collision_circle(x,y,visao,oPlayersIdle,false,true);
 	//var _vi = collision_line(x, y, x + visao * image_xscale, y, oPlayersIdle, false, true);
 	if(_vi) { _dialogo = true }
@@ -36,35 +36,9 @@ if (_dialogo == true)
 		if(_time == -100) {falas = "sala01e"};
 		if(_time == -150) {falas = "sala01f"};
 		
-	
-sala01 =[
-	"Não, realmente ele não está aqui. Mas que saco.",
-	"Tudo que vejo é uma vida e dinheiro",
-	"Você é o pior humano que já possuí, esta louco.",
-	"É só ir embora e tudo certo. Te amo.",
-	"Eca, já disse que não gosto disso.",
-	"Vou pegar tudo e entrar na próxima porta."
-]
-sala02 =[
-	"Sabia que porcos não olham para cima?",
-	"Deve ser por isso que pular na sua cabeça revolva.",
-	"Ou uma bela maretada.",
-	"Ou uma bela MARETADA! Hehehehe",
-	"Muahahauhauau",
-	"Que barulho foi esse? Vamos ver."
-]		
-
-sala03 =[
-	"E lá vamos nós de novo. Sempre pulando.",
-	"Não sei qual objetivo de tanta parede.",
-	"Porcos né!",
-	"Hehehe",
-	"Muahaha ha ha aha.",
-	"Para com isso!"
-]	
 
 // antes dos boss
-sala05 =[
+sala01 =[
 	"E esse simbolo?",
 	"Que simbolo?",
 	"Meus deus, esse que estava na parede.",
