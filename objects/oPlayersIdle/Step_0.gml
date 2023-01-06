@@ -4,12 +4,15 @@ if(estado != "morto")
 	if(estado != "hit")
 	{
 		// Controladores do personagem
-		var _up,_left,_right,_down,_jump,_attack,_dash;
+		var _up,_left,_right,_down,_jump,_attack,_dash,_runner;
 		_up = keyboard_check(inputs.up);
 		_left = keyboard_check(inputs.left);
 		_right = keyboard_check(inputs.right);
 		_down = keyboard_check(inputs.down);
 		_jump = keyboard_check(inputs.jump);
+		
+		_runner = keyboard_check(inputs.runner);
+		
 		_attack = keyboard_check(inputs.attack);
 		_dash = keyboard_check(inputs.dash);
 		
@@ -20,10 +23,19 @@ if(estado != "morto")
 			_left = gamepad_button_check(0,gp_padl);
 			_right = gamepad_button_check(0,gp_padr);
 			_down = gamepad_button_check(0,gp_padd);
+			
+			/*
+			_up = gamepad_button_check(0,gp_axislv);
+			_left = gamepad_button_check(0,gp_axislh);
+			_right = gamepad_button_check(0,gp_axisrh);
+			_down = gamepad_button_check(0,gp_axisrv);
+			*/
+			
 			_jump = gamepad_button_check(0,gp_face1);
 			_attack = gamepad_button_check(0,gp_face2);
 			_dash = gamepad_button_check(0,gp_face3);
-			andar(_right, _left);
+			_runner = gamepad_button_check(0,gp_shoulderr);
+			
 		}
 		
 		// Cronometro Jump
@@ -37,11 +49,9 @@ if(estado != "morto")
 		
 		// Pular do Chão
 		pular(_jump);
-		
-		// Pular da parede
-		
+	
 		// Andar
-		andar(_right, _left);
+		andar(_right, _left, _runner);
 		
 		// Dahsar
 		dashar(_dash,"dash")
@@ -101,8 +111,6 @@ if(estado != "morto")
 #endregion
 }
 
-	
-
 
 switch(estado)
 {
@@ -156,7 +164,8 @@ switch(estado)
 	
 	case "fallwall":
 		muda_sprite(s_players_fall_wall);
-		velv = .2;
+		if(_right || _left){ velh = 0}
+		if(_down){ velv = 5} else {velv = .2;}
 		pularDaParede(_jump);
 	break;
 

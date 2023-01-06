@@ -1,7 +1,7 @@
 {
   "resourceType": "GMScript",
   "resourceVersion": "1.0",
-  "name": "cromometros",
+  "name": "cronometros",
   "isDnD": false,
   "isCompatibility": false,
   "parent": {

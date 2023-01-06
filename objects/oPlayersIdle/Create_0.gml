@@ -13,6 +13,7 @@ _direcao = 1;
 balao = false;
 _balao = false;
 
+resetaTime = -1;
 
 //_hit = false;							// inicia o contador da invulneravel
 //invulneravel =  room_speed * 4;			// tempo invulneravel base
@@ -23,3 +24,4 @@ time = room_speed * 2;					// tempo de espera base
 _time = time;						// tempo de espera temporari
 */
 estado = "saindo";				// idle, anda, pula, attack, hit
+

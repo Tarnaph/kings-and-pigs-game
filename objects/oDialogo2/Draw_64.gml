@@ -23,7 +23,7 @@ if (_dialogo == false && dialogo == false)
 if (_dialogo == true)
 {
 		_time -= .5;
-		show_debug_message(_time)
+		//show_debug_message(_time)
 		var _x = display_get_gui_width();
 		var _y = display_get_gui_height();
 		

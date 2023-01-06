@@ -5,7 +5,7 @@
   "resources": [
     {"id":{"name":"s_porco_caixa_run","path":"sprites/s_porco_caixa_run/s_porco_caixa_run.yy",},"order":2,},
     {"id":{"name":"s_fx_andar","path":"sprites/s_fx_andar/s_fx_andar.yy",},"order":0,},
-    {"id":{"name":"cromometros","path":"scripts/cromometros/cromometros.yy",},"order":2,},
+    {"id":{"name":"cronometros","path":"scripts/cronometros/cronometros.yy",},"order":2,},
     {"id":{"name":"s_players_saindo","path":"sprites/s_players_saindo/s_players_saindo.yy",},"order":10,},
     {"id":{"name":"oContador","path":"objects/oContador/oContador.yy",},"order":0,},
     {"id":{"name":"s_players_entrando","path":"sprites/s_players_entrando/s_players_entrando.yy",},"order":9,},

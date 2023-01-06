@@ -5,6 +5,7 @@ inputs = {
 	right:ord("D"),
 	down:ord("S"),
 	jump:vk_space,
+	runner:vk_shift,
 	dash:ord("F"),
 	attack:ord("J")
 }
@@ -51,7 +52,7 @@ leva_dano_de_inimigo = function(_obj,_estado,_destroi)
 	_inimigo = instance_place(x,y,_obj);
 	if(_inimigo && _inimigo.estado != "morto" && _inimigo.estado == "ataca")
 	{ 
-		global._timeInvulneravel -= 1;
+		global._timeInvulneravel -= global.subt_cronometro_invul;
 		velh = 0;
 		estado = _estado;
 		criaShakeCamera(1);
@@ -70,7 +71,7 @@ leva_dano_de_projeto = function(_obj,_estado,_destroi)
 	&& _projeteis.estado != "open"
 	&& _projeteis.estado != "close")
 	{ 
-		global._timeInvulneravel -= 1;
+		global._timeInvulneravel -= global.subt_cronometro_invul;
 		velh = 0;
 		velv = 0;
 		estado = _estado;
@@ -93,17 +94,16 @@ ataqueDePulo = function()
 	}
 }
 
-
+// Atack dash
 dash = function()
 {
-	global._timeInvulneravel -= 1;
+	global._timeInvulneravel -= global.subt_cronometro_invul;
 	velh = 6 * image_xscale;
 	var _inimigo = instance_place(x,y, oInimigoPai );
 	if(_inimigo && _inimigo.estado != "dano" &&  _inimigo.estado != "morto" && estaNoChao())
 	{
 		criaShakeCamera(1);
 		_inimigo.estado = "dano";
-		velh = -velh;
 	}
 }
 
@@ -140,22 +140,28 @@ interagir_com_objeto = function(_obj,_estado,_destroi)
 }
 
 // Andar
-function andar(_right, _left){ velh = (_right - _left) * vel; }
+function andar(_right, _left,_runner)
+{ 
+	if((_right && _runner) ||( _left && _runner))
+	{velh = (_right - _left) * (vel + 3); }
+	else 
+	{velh = (_right - _left) * vel; }	
+}
 
 // Pular do chao
 function pular(_jump)
-{ if(_jump && estaNoChao() && global._timeJump >= global.timeJump){ global._timeJump -= 80; velv = -velj;} }
+{ if(_jump && estaNoChao() && global._timeJump >= global.timeJump){ global._timeJump -= global.subt_cronometro_jump; velv = -velj;} }
 
 // Pular da parede
 function pularDaParede(_jump)
-{if(_jump && global._timeJump >=  global.timeJump) {velv = -velj; global._timeJump -= 80;}}
+{if(_jump && global._timeJump >=  global.timeJump) {velv = -velj; global._timeJump -= global.subt_cronometro_jump;}}
 
 
 // Dashar
 function dashar(_dash,_estado)
 {
 	if(_dash && global._timeDash >= global.timeDash && estado != "fallwall") 
-	{ estado = _estado; global._timeDash -= 20;}
+	{ estado = _estado; global._timeDash -= global.subt_cronometro_dash ;}
 }
 
 

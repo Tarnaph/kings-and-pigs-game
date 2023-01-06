@@ -6,7 +6,7 @@ vel = 1;							// velocidade base
 grav = .5;							// gravidade
 
 // atributos vida
-vida = 5;							// vida max
+vida = 2;							// vida max
 _vida = vida;						// vida temporaria
 
 loot = 1;

@@ -1,20 +1,18 @@
 global.coin = 0;
 global._coin = global.coin;
 
-
 global.diamantes = 2;
 global._diamantes = global.diamantes;
 
 global.vida = 2;
 global._vida = global.vida;
 
-/*
-global.timeJump = room_speed *2;
-global._timeJump = global.timeJump ;
+// Subtracao do cronometro 
+global.subt_cronometro_dash  = 100;
+global.subt_cronometro_jump  = 100;
+global.subt_cronometro_invul = 50;
 
-global.timeDash = room_speed *2;
-global._timeDash = global.timeDash ;
-*/ 
+
 
 // Desenha gui
 desenhar = function(_sprit, _x, _y, _scale)
