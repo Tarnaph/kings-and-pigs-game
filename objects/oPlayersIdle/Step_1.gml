@@ -99,6 +99,7 @@ dash = function()
 {
 	global._timeInvulneravel -= global.subt_cronometro_invul;
 	velh = 6 * image_xscale;
+	velv = 0;
 	var _inimigo = instance_place(x,y, oInimigoPai );
 	if(_inimigo && _inimigo.estado != "dano" &&  _inimigo.estado != "morto" && estaNoChao())
 	{
@@ -142,15 +143,14 @@ interagir_com_objeto = function(_obj,_estado,_destroi)
 // Andar
 function andar(_right, _left,_runner)
 { 
-	if((_right && _runner) ||( _left && _runner))
-	{velh = (_right - _left) * (vel + 3); }
-	else 
-	{velh = (_right - _left) * vel; }	
+	if((_right && _runner) ||( _left && _runner)){velh = (_right - _left) * (vel + 1); }
+	else {velh = (_right - _left) * vel; }
 }
 
 // Pular do chao
 function pular(_jump)
 { if(_jump && estaNoChao() && global._timeJump >= global.timeJump){ global._timeJump -= global.subt_cronometro_jump; velv = -velj;} }
+
 
 // Pular da parede
 function pularDaParede(_jump)

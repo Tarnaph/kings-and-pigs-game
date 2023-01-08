@@ -22,7 +22,7 @@ desenhar(s_gui_diamante,_x + 18, _y + 47, 2);
 }
 /*-----------------------------------------------*/
 
-/* Restart */
+/* Restart 
 if (global._vida <= 0 && global._diamantes > 0) 
 {
 	var _wgui = display_get_gui_width();
@@ -38,7 +38,7 @@ if( global._diamantes == 0)
 	desenhar(s_gui_gamer_over,_wgui/2, _hgui/2, 2);
 	if(keyboard_check(vk_anykey)){game_restart();}
 	if(gamepad_button_check(0,gp_start)){game_restart();}
-}
+}*/
 /*-----------------------------------------------*/
 /*
 var _wgui = display_get_gui_width();

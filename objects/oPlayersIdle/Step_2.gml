@@ -18,7 +18,6 @@ if _col
 	// se colidir paro
 	velh = 0;
 }
-x += velh; // direcao horizontal
 
 // Colisao vertical
 var _col = instance_place(x, y + velv, oChao); // verifica se colidiu
@@ -39,6 +38,7 @@ if _col
 }
 
 
+x += velh; // direcao horizontal
 y += velv; // direcao vertical
 
 

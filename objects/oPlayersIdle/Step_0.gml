@@ -49,7 +49,7 @@ if(estado != "morto")
 		
 		// Pular do Chão
 		pular(_jump);
-	
+			
 		// Andar
 		andar(_right, _left, _runner);
 		
@@ -157,7 +157,8 @@ switch(estado)
 		if (image_index >= image_number-vel_sprite(s_players_hit))
 		{
 			global._vida -= 1;
-			if(global._vida <= 0) {estado = "morto"; global._diamantes -= 1;} else {estado = "idle";}
+			if(global._vida <= 0) 
+			{ estado = "morto"; global._diamantes -= 1;} else {estado = "idle";}
 		}
 		
 	break;

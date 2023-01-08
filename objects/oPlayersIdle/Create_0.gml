@@ -1,7 +1,7 @@
 // atributos base
 velh = 0;							// velocidade horizontal
 velv = 0;							// velocidade vertical
-velj = 6;							// velocidade pulo
+velj = 7;							// velocidade pulo
 vel = 2;							// velocidade base
 grav = .5;							// gravidade
 
@@ -9,6 +9,8 @@ visao = 50;							// alcance do golpe
 
 direcao = 1;
 _direcao = 1;
+
+_puloDuplo = false;
 
 balao = false;
 _balao = false;

@@ -2,8 +2,8 @@
   "resourceType": "GMOperaGXOptions",
   "resourceVersion": "1.0",
   "name": "operagx",
-  "option_operagx_version": "1.0.0.0",
-  "option_operagx_next_version": "1.0.0.1",
+  "option_operagx_version": "1.0.0.1",
+  "option_operagx_next_version": "1.0.0.2",
   "option_operagx_game_name": "kings-and-pigs",
   "option_operagx_interpolate_pixels": true,
   "option_operagx_scale": 0,
@@ -13,6 +13,6 @@
   "option_operagx_team_name": "papelh6b studio",
   "option_operagx_team_id": "1a53d6c8-0ddf-437b-85c9-a2573224cd25",
   "option_operagx_editUrl": "https://create.gx.games/game/0eb21a94-cc8e-4ab6-a0ab-591084abe0dd/edit",
-  "option_operagx_internalShareUrl": "",
+  "option_operagx_internalShareUrl": "https://gx.games/games/mzez2i/kings-and-pigs/tracks/3e7f7ce1-216c-4f93-bfc2-69a4eb7098d6/",
   "option_operagx_publicShareUrl": "",
 }

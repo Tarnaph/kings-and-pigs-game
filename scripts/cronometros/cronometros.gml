@@ -30,6 +30,6 @@ function cronometroInvulneravel()
 {
 	if (global._timeInvulneravel < global.timeBase) { global._timeInvulneravel--;image_alpha = .5;}
 	if(global._timeInvulneravel <= 0 ) {global._timeInvulneravel = global.timeInvulneravel; image_alpha = 1; }	
-	show_debug_message(global._timeInvulneravel);
+	//show_debug_message(global._timeInvulneravel);
 }
 
