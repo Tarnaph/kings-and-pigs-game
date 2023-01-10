@@ -1,6 +1,13 @@
 // Inherit the parent event
 event_inherited();
 
+if(saida)
+{
+	if(global._key > 0) { image_alpha = 1 } 
+	else { image_alpha = 0.3 }
+	
+}
+
 switch(estado)
 {
 	case "idle":
@@ -19,6 +26,10 @@ switch(estado)
 	
 	case "close":
 		muda_sprite(s_porta_close);
-		if (image_index >= image_number-vel_sprite(s_porta_open)){ estado = "idle"; }
+		if (image_index >= image_number-vel_sprite(s_porta_close))
+		{ 
+			estado = "idle";
+			if(!saida){global._key -= 1}
+		}
 	break;
 }

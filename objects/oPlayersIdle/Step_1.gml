@@ -101,7 +101,7 @@ dash = function()
 	velh = 6 * image_xscale;
 	velv = 0;
 	var _inimigo = instance_place(x,y, oInimigoPai );
-	if(_inimigo && _inimigo.estado != "dano" &&  _inimigo.estado != "morto" && estaNoChao())
+	if(_inimigo && _inimigo.estado != "dano" &&  _inimigo.estado != "morto")
 	{
 		criaShakeCamera(1);
 		_inimigo.estado = "dano";
@@ -169,9 +169,19 @@ function dashar(_dash,_estado)
 function entrarPorta(_up)
 {
 	if(_up && estaNoChao()){ _tocou = instance_place(x,y,oPorta);
-		if(_tocou && _tocou.saida == true) { _tocou.estado = "open"; estado = "entrando";}
+	if(_tocou && _tocou.saida == true && global._key > 0) { _tocou.estado = "open"; estado = "entrando";}
 	}
 }
 
+
+function levelUp()
+{
+	if(global._coin >= global._level * 10) 
+	{ 
+		show_debug_message(global._coin)
+		show_debug_message(global._level)
+		estado = "level" 
+	};
+}
 
 	
