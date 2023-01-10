@@ -7,6 +7,7 @@ inputs = {
 	jump:vk_space,
 	runner:vk_shift,
 	dash:ord("F"),
+	menu:vk_escape,
 	attack:ord("J")
 }
 

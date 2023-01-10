@@ -1,3 +1,7 @@
+var _menu;
+_menu = keyboard_check(inputs.menu);
+if(_menu) { room_goto(menu) };
+
 // morto
 if(estado != "morto")
 {
