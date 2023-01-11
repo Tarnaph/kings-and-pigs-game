@@ -11,11 +11,11 @@ draw_set_font(-1)
 with(oPlayersIdle)
 {
 	if(estado == "saindo") {global._timeSurvive = global.timeSurvive;}
-	if(estado != "saindo") 
+	if(estado != "saindo" && global._timeSurvive >= 0) 
 	{
-		repeat(global._level * global._level){global._timeSurvive--;}
+		repeat(global._level * 2){global._timeSurvive--;}
 	}
-	if( estado == "morto") {repeat(global._level * global._level){global._timeSurvive++;}}
+	if( estado == "morto") {}
 
 	if(global._timeSurvive <= 0)
 	{

@@ -231,8 +231,8 @@ switch(estado)
 		{
 			global._level += 1;
 			global.vidaMaxima += 1;
-			global._vida = global.vidaMaxima;
-			//global.subt_cronometro_dash  += 50;
+			//global._vida = global.vidaMaxima;
+			global.subt_cronometro_dash  += 50;
 			global.subt_cronometro_jump  += 10;
 			vel += 1;
 			global._coin = global.coin;

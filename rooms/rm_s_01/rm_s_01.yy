@@ -22,10 +22,7 @@
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"player","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_8F5640F_6_1","properties":[],"isDnd":false,"objectId":{"name":"oPlayersIdle","path":"objects/oPlayersIdle/oPlayersIdle.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":64.0,"y":352.0,},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
-    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"inimigos","instances":[
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_2FC190BF","properties":[],"isDnd":false,"objectId":{"name":"oCaixaRespaw","path":"objects/oCaixaRespaw/oCaixaRespaw.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":192.0,"y":64.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_15A37F5E","properties":[],"isDnd":false,"objectId":{"name":"oCaixaRespaw","path":"objects/oCaixaRespaw/oCaixaRespaw.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":512.0,"y":64.0,},
-      ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
+    {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"inimigos","instances":[],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"portas","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4091B414_6_1","properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"saida","path":"objects/oPorta/oPorta.yy",},"objectId":{"name":"oPorta","path":"objects/oPorta/oPorta.yy",},"value":"False",},
@@ -88,8 +85,6 @@
     {"name":"inst_2256324C_1","path":"rooms/rm_s_01/rm_s_01.yy",},
     {"name":"inst_5B2BBE89","path":"rooms/rm_s_01/rm_s_01.yy",},
     {"name":"inst_4EE5EB6A","path":"rooms/rm_s_01/rm_s_01.yy",},
-    {"name":"inst_15A37F5E","path":"rooms/rm_s_01/rm_s_01.yy",},
-    {"name":"inst_2FC190BF","path":"rooms/rm_s_01/rm_s_01.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
