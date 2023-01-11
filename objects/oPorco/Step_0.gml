@@ -27,6 +27,7 @@ switch(estado)
 	break;
 	
 	case "idle":
+		velh = 0;
 		muda_sprite(s_porco_idle);
 		if (image_index >= image_number-vel_sprite(s_porco_idle)){estado = "patrulha";}
 	break;
@@ -40,6 +41,7 @@ switch(estado)
 	
 	case "run":
 		muda_sprite(s_porco_run);
+		if (image_index >= image_number-vel_sprite(s_porco_run)){estado = "idle";}
 	break;
 	
 	case "ataca":

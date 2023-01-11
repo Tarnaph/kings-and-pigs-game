@@ -4,3 +4,4 @@
 menu_selected = -1;
 estado = 5;
 menu_inicial = [ "História", "Sobrevivencia", "Créditos", "Sair" ];
+

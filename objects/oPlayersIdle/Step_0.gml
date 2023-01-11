@@ -2,6 +2,13 @@ var _menu;
 _menu = keyboard_check(inputs.menu);
 if(_menu) { room_goto(menu) };
 
+if(gamepad_is_connected(0))
+{  _menu = gamepad_button_check_pressed(0,gp_start);	
+	if(_menu) { room_goto(menu) };
+}
+
+show_debug_message(global._key)
+
 // morto
 if(estado != "morto")
 {
@@ -102,7 +109,7 @@ if(estado != "morto")
 #region consumiveis	
 	// Pega pocao de vida
 	_p_vida = instance_place(x,y,oPocaoCoracao);
-	if(_p_vida && global._vida <= global.vidaMaxima)
+	if(_p_vida && global._vida < global.vidaMaxima)
 	{ 
 		global._vida += 1;
 		instance_destroy(_p_vida);
@@ -127,6 +134,7 @@ if(estado != "morto")
 	_p_key = instance_place(x,y,oKey);
 	if(_p_key)
 	{ 
+		if (global._key < 0) { global._key = 0;}
 		global._key += 1;
 		instance_destroy(_p_key);
 	}
@@ -198,9 +206,13 @@ switch(estado)
 		{
 			image_speed = 0;
 			image_index = image_number-vel_sprite(s_players_dead);
-			room_restart();
 			global._vida = global.vida;
-			global._key = global.key
+			global._key = global.key;
+			global._level = global.level;
+			global._coin = global.coin;
+			room_restart();
+			
+			
 		}
 	break;
 	

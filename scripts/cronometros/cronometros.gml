@@ -9,6 +9,9 @@ global._timeDash = global.timeDash;
 global.timeInvulneravel = global.timeBase;
 global._timeInvulneravel = global.timeInvulneravel;
 
+global.timeSurvive = global.timeBase * 10;
+global._timeSurvive = global.timeSurvive;
+
 /* Timer Jump  */
 function cronometroJump() 
 {

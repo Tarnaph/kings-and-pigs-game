@@ -107,15 +107,17 @@ criaLot = function()
 	if loot == 1
 	{
 		_r = random(2);
-		repeat(_r)
+		repeat(_r && global._vida != global.vidaMaxima)
+		{
+			_vida = instance_create_layer(x, y-20, layer, oPocaoCoracao );
+			_vida.velh = random_range(-4,6);
+			_vida.velv = random_range(-4,-7);
+		}
+		repeat(_r * global.level + 2)
 		{
 			var _coin = instance_create_layer(x, y, layer, oCoin );
-			_coin.velh = random_range(-12,12);
-			_coin.velv = random_range(-10,-5);
-			
-			_vida = instance_create_layer(x, y-20, layer, oPocaoCoracao );
-			_vida.velh = random_range(-12,12);
-			_vida.velv = random_range(-10,-5);
+			_coin.velh = random_range(-4,6);
+			_coin.velv = random_range(-4,-6);
 		}
 		/*
 		if global._vida == 1
@@ -132,3 +134,5 @@ criaLot = function()
 	}
 }
 
+
+if(estado == "morto"){global._timeSurvive += (10 - (global._level * 2))+1 ;}

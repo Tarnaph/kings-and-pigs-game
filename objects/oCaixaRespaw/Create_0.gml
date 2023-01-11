@@ -2,7 +2,7 @@
 event_inherited();
 
 // fase da bomba
-estado = "on" // off, on, boom
+estado = "espera" // off, on, boom
 
 visao = 100;
 cairdaplataforma = false;

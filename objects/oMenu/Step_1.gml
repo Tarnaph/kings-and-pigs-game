@@ -22,3 +22,4 @@ if(gamepad_is_connected(0))
 // Navega entre os menus
 if (_up && menu_selected != 0 && menu_selected != -1)  {menu_selected = menu_selected -1}
 if (_down && menu_selected < 3)  {menu_selected = menu_selected +1}
+
