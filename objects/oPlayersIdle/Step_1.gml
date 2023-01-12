@@ -92,15 +92,29 @@ ataqueDePulo = function()
 		velv = -velj;
 		criaShakeCamera(1);
 		_inimigo.estado = "dano";
+		
+		// Cria bola de energia
+		
+		if(global._level >= 3)
+		{
+			repeat(global._level /2)
+			{
+				var _l = instance_create_layer(x, y +10, layer, oAttackLight );
+				_l.velh = random(3) * image_xscale;
+				_l.estado = "on";
+			}
+		}
 	}
+	
 }
 
 // Atack dash
 dash = function()
 {
-	global._timeInvulneravel -= global.subt_cronometro_invul;
-	velh = 6 * image_xscale;
+	//global._timeInvulneravel -= global.subt_cronometro_invul;
+	velh = 3 * image_xscale;
 	velv = 0;
+	
 	var _inimigo = instance_place(x,y, oInimigoPai );
 	if(_inimigo && _inimigo.estado != "dano" &&  _inimigo.estado != "morto")
 	{
@@ -179,8 +193,7 @@ function levelUp()
 {
 	if(global._coin >= global._level * 10) 
 	{ 
-		show_debug_message(global._coin)
-		show_debug_message(global._level)
+		
 		estado = "level" 
 	};
 }

@@ -3,8 +3,6 @@ event_inherited();
 
 switch(estado)
 {
-	
-	
 	case "idle":
 		muda_sprite(s_porco_caixa_idle);
 		if (image_index >= image_number-vel_sprite(s_porco_caixa_idle)){estado = "patrulha";}
@@ -17,6 +15,7 @@ switch(estado)
 	
 	case "run":
 		muda_sprite(s_porco_caixa_run);
+		if (image_index >= image_number-vel_sprite(s_porco_caixa_run)){estado = "patrulha";}
 	break;
 	
 	case "ataca":

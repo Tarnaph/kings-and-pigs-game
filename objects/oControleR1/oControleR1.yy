@@ -29,6 +29,6 @@
   "overriddenProperties": [],
   "parent": {
     "name": "gamepad_controle",
-    "path": "folders/Objects/gamepad_controle.yy",
+    "path": "folders/Objects/gui/gamepad_controle.yy",
   },
 }

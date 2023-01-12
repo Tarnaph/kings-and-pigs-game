@@ -7,7 +7,6 @@ if(gamepad_is_connected(0))
 	if(_menu) { room_goto(menu) };
 }
 
-show_debug_message(global._key)
 
 // morto
 if(estado != "morto")
@@ -98,23 +97,18 @@ if(estado != "morto")
 		// Sistema de dano
 		if (global._timeInvulneravel >= global.timeInvulneravel) { leva_dano_de_inimigo(oInimigoPai,"hit",false); leva_dano_de_projeto(oProjetoPai,"hit",false); }	
 		
-		/* escala 
-		if(global._vida >=4){
-		image_xscale = 1;
-			image_yscale = 1;}
-			*/
-
+		
 	}
 	
 #region consumiveis	
 	// Pega pocao de vida
 	_p_vida = instance_place(x,y,oPocaoCoracao);
-	if(_p_vida && global._vida < global.vidaMaxima)
+	if(_p_vida && global._vida < global.vida)
 	{ 
 		global._vida += 1;
 		instance_destroy(_p_vida);
 	}
-	// Pega pocao de vida
+	// Pega _diamantes
 	_p_diamante = instance_place(x,y,oConsulDiamante);
 	if(_p_diamante && global._diamantes <= 2)
 	{ 
@@ -177,9 +171,34 @@ switch(estado)
 	break;
 	
 	case "dash":
+	
 		muda_sprite(s_players_attack);
 		dash();
-		if (image_index >= image_number-vel_sprite(s_players_attack)){ estado = "idle"; }
+		if (image_index >= image_number-vel_sprite(s_players_attack))
+		{
+			estado = "idle";
+			// cria fogo
+			if(global._level >= 1)
+			{	
+
+				var _at = instance_create_layer(x, y , layer, oAttackFire );
+				_at.velh = choose(5,10)* image_xscale;
+				_at.estado = "on";
+			}
+			if(global._level >= 2)
+			{
+				var _af = instance_create_layer(x, y , layer, oAttackFisico );
+				_af.velh = choose(15,20) * image_xscale;
+				_af.estado = "on";
+			}
+			if(global._level >= 3)
+			{
+				var _av = instance_create_layer(x, y , layer, oAttackVeneno );
+				_av.velh = choose(25,30) * image_xscale;
+				_av.estado = "on";
+			}
+		}
+		
 	break;
 
 	case "hit":
@@ -206,36 +225,28 @@ switch(estado)
 		{
 			image_speed = 0;
 			image_index = image_number-vel_sprite(s_players_dead);
-			global._vida = global.vida;
+			global._vida = global.vidaMaxima;
+			global.vida = global.vidaMaxima;
 			global._key = global.key;
 			global._level = global.level;
 			global._coin = global.coin;
+			global.subt_cronometro_dash  = 90;
+			global.subt_cronometro_jump  = 100;
+			global.subt_cronometro_invul = 50;
 			room_restart();
-			
-			
 		}
 	break;
 	
 	case "level":
-		
-		// +1 max vida
-		// _vida = vida
-		// atack -= .2
-		// pulo -= .2
-		// shift
-		
 		muda_sprite(s_players_levelup);
 		velh = 0;
 		velv = 0;
 		if (image_index >= image_number-vel_sprite(s_players_levelup))
 		{
 			global._level += 1;
-			global.vidaMaxima += 1;
-			//global._vida = global.vidaMaxima;
-			global.subt_cronometro_dash  += 50;
-			global.subt_cronometro_jump  += 10;
-			vel += 1;
+			global.vida += 1;
 			global._coin = global.coin;
+			if(instance_exists(oInimigoPai)){oInimigoPai.estado = "dano"}
 		}
 		estado = "idle";
 	break;

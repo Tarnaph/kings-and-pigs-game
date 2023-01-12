@@ -106,8 +106,10 @@ criaLot = function()
 {
 	if loot == 1
 	{
+		_n = random(global._level);
+		show_debug_message(_n)
 		_r = random(2);
-		repeat(_r && global._vida != global.vidaMaxima)
+		repeat(_r && global._vida != global.vida && _n < 2)
 		{
 			_vida = instance_create_layer(x, y-20, layer, oPocaoCoracao );
 			_vida.velh = random_range(-4,6);
@@ -135,4 +137,4 @@ criaLot = function()
 }
 
 
-if(estado == "morto"){global._timeSurvive += (10 - (global._level * 2))+1 ;}
+if(estado == "morto"){global._timeSurvive += (global._level * 2)+1 ;}

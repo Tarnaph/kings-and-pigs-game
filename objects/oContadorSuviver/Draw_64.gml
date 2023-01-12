@@ -1,11 +1,8 @@
 var _wgui = display_get_gui_width();
 var _hgui = display_get_gui_height();
 
-
-
-
 draw_set_font(ft_idle2) 
-draw_text_transformed(_wgui/2 -80,_hgui/2 -50 ,global._timeSurvive / 60,1,1,0 );
+draw_text_transformed(_wgui/2 -80,_hgui/2 -50 ,global._timeSurvive / 60 /60,1,1,0 );
 draw_set_font(-1) 
 
 with(oPlayersIdle)
@@ -13,7 +10,7 @@ with(oPlayersIdle)
 	if(estado == "saindo") {global._timeSurvive = global.timeSurvive;}
 	if(estado != "saindo" && global._timeSurvive >= 0) 
 	{
-		repeat(global._level * 2){global._timeSurvive--;}
+		repeat(global._level * 1.2){global._timeSurvive--;}
 	}
 	if( estado == "morto") {}
 
@@ -24,6 +21,6 @@ with(oPlayersIdle)
 		grav =10;
 		estado = "morto";
 		
-		show_debug_message("morri")
+	
 	}
 }
