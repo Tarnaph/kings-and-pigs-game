@@ -24,7 +24,7 @@ switch(estado)
 		if (image_index >= image_number-vel_sprite(s_artefato_caixa_look))
 		{
 			
-			if(global._level <= 9)
+			if(global._level <= 5)
 			{
 				_r = random(global._level/2);
 				repeat(_r+1)
@@ -37,7 +37,7 @@ switch(estado)
 					_porco._vida = global._level/3;
 				}
 			}
-			if(global._level >= 3 && global._level <= 9)
+			if(global._level >= 2 && global._level <= 5)
 			{
 				_r = random(global._level/2);
 				repeat(_r+1)
@@ -51,9 +51,9 @@ switch(estado)
 				}
 			}
 			
-			if(global._level >= 5 && global._level <= 9)
+			if(global._level >= 3 && global._level <= 5)
 			{
-				_r = random(global._level/4);
+				_r = random(global._level/2);
 				repeat(_r)
 				{ 
 					var _porcoCaixa = instance_create_layer(x, y -14, layer, oPorcoCaixa );
@@ -65,12 +65,20 @@ switch(estado)
 				}
 			}
 			
-			if(global._level <= 10)
+			if(global._level >= 1)
 			{
-				_r = random(global._level/2);
-				repeat(_r+1)
-				{ 
-					
+				if(!instance_exists(oMage))
+				{
+					_r = random(global._level/2);
+					repeat(1)
+					{ 
+						var _maga = instance_create_layer(x, y -14, layer, oMage );
+						_maga.velh = random_range(1,1) * choose(-1,1);
+						_maga.velv = random_range(-1,-2);
+						_maga.cairdaplataforma = true;	
+						_maga.estado = "run";
+						_maga._vida = global._level*2;
+					}
 				}
 			}
 			if(global._timeRespaw < 0){global._timeRespaw = global.timeRespaw * global._level /2;}

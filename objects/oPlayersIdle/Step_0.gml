@@ -14,7 +14,7 @@ if(estado != "morto")
 	if(estado != "hit")
 	{
 		// Controladores do personagem
-		var _up,_left,_right,_down,_jump,_attack,_dash,_runner;
+		var _up,_left,_right,_down,_jump,_attack,_dash,_runner,_esquiva;
 		_up = keyboard_check(inputs.up);
 		_left = keyboard_check(inputs.left);
 		_right = keyboard_check(inputs.right);
@@ -22,6 +22,7 @@ if(estado != "morto")
 		_jump = keyboard_check(inputs.jump);
 		
 		_runner = keyboard_check(inputs.runner);
+		_esquiva = keyboard_check(inputs.esquiva);
 		
 		_attack = keyboard_check(inputs.attack);
 		_dash = keyboard_check(inputs.dash);
@@ -42,7 +43,7 @@ if(estado != "morto")
 			*/
 			
 			_jump = gamepad_button_check(0,gp_face1);
-			_attack = gamepad_button_check(0,gp_face2);
+			_esquiva = gamepad_button_check(0,gp_face2);
 			_dash = gamepad_button_check(0,gp_face3);
 			_runner = gamepad_button_check(0,gp_shoulderr);
 			
@@ -50,6 +51,9 @@ if(estado != "morto")
 		
 		// Cronometro Jump
 		cronometroJump();
+		
+		// Cronometro Jump
+		cronometroEsquiva();
 		
 		// Cronometro Dash
 		cronometroDash();
@@ -66,6 +70,14 @@ if(estado != "morto")
 		// Dahsar
 		dashar(_dash,"dash")
 		
+		//Esquiva
+		if(_esquiva && global._timeEsquiva >= global.timeEsquiva && estado != "fallwall") 
+		{ 
+			estado = "esquiva"; 
+		}
+	
+		
+		
 		// Entra na porta
 		entrarPorta(_up);
 		
@@ -73,9 +85,9 @@ if(estado != "morto")
 		levelUp();
 	
 		// Mudar os estados
-		if (velh != 0 && estaNoChao() && estado != "dash" && estado != "level")  { estado = "anda";  }
-		if (velv < 0  && !estaNoChao() && estado != "dash" && estado != "level") { estado = "pula";  }	
-		if (velv > 0  && !estaNoChao() && estado != "dash" && estado != "level") { estado = "cai";   }	
+		if (velh != 0 && estaNoChao() && estado != "dash" && estado != "level" && estado != "esquiva")  { estado = "anda";  }
+		if (velv < 0  && !estaNoChao() && estado != "dash" && estado != "level" && estado != "esquiva") { estado = "pula";  }	
+		if (velv > 0  && !estaNoChao() && estado != "dash" && estado != "level" && estado != "esquiva") { estado = "cai";   }	
 		if(_attack && estaNoChao() && estado != "level")     { estado = "ataca"; }
 		if (velh = 0  && estaNoChao() 
 			&& estado != "hit" 
@@ -84,6 +96,7 @@ if(estado != "morto")
 			&& estado != "ataca"
 			&& estado != "saindo"
 			&& estado != "level"
+			&& estado != "esquiva"
 			&& estado != "entrando")  
 		{ estado = "idle";  }
 		if(estaNaParede() 
@@ -96,7 +109,7 @@ if(estado != "morto")
 	
 		// Sistema de dano
 		if (global._timeInvulneravel >= global.timeInvulneravel) { leva_dano_de_inimigo(oInimigoPai,"hit",false); leva_dano_de_projeto(oProjetoPai,"hit",false); }	
-		
+		show_debug_message(global._timeInvulneravel)
 		
 	}
 	
@@ -170,31 +183,46 @@ switch(estado)
 		// nada
 	break;
 	
-	case "dash":
+	case "esquiva":
+		global._timeEsquiva -= global.subt_cronometro_esquiva;
+		global._timeInvulneravel--;
+		
+		muda_sprite(s_players_dash);
+		velh += 1 * image_xscale *vel; velv = 0;
+		if (image_index >= image_number-vel_sprite(s_players_dash))
+		{
+			
+			global._timeInvulneravel =0;
+			estado = "idle";
+		}
+		
+		
+	break;
 	
-		muda_sprite(s_players_attack);
+	case "dash":
 		dash();
+		muda_sprite(s_players_attack);
+		
 		if (image_index >= image_number-vel_sprite(s_players_attack))
 		{
 			estado = "idle";
 			// cria fogo
 			if(global._level >= 1)
 			{	
-
 				var _at = instance_create_layer(x, y , layer, oAttackFire );
-				_at.velh = choose(5,10)* image_xscale;
+				_at.velh = choose(13,15)* image_xscale;
 				_at.estado = "on";
 			}
 			if(global._level >= 2)
 			{
 				var _af = instance_create_layer(x, y , layer, oAttackFisico );
-				_af.velh = choose(15,20) * image_xscale;
+				_af.velh = choose(15,17) * image_xscale;
 				_af.estado = "on";
 			}
 			if(global._level >= 3)
 			{
 				var _av = instance_create_layer(x, y , layer, oAttackVeneno );
-				_av.velh = choose(25,30) * image_xscale;
+				_av.velh = choose(17,20) * image_xscale;
 				_av.estado = "on";
 			}
 		}
@@ -244,7 +272,7 @@ switch(estado)
 		if (image_index >= image_number-vel_sprite(s_players_levelup))
 		{
 			global._level += 1;
-			global.vida += 1;
+			//global.vida += 1;
 			global._coin = global.coin;
 			if(instance_exists(oInimigoPai)){oInimigoPai.estado = "dano"}
 		}

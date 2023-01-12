@@ -3,6 +3,9 @@ global.timeBase = room_speed *2;
 global.timeJump = global.timeBase;
 global._timeJump = global.timeJump ;
 
+global.timeEsquiva = global.timeBase;
+global._timeEsquiva = global.timeEsquiva ;
+
 global.timeDash = global.timeBase;
 global._timeDash = global.timeDash;
 
@@ -15,6 +18,21 @@ global._timeSurvive = global.timeSurvive;
 global.timeRespaw = global.timeBase * 10;
 global._timeRespaw = global.timeRespaw;
 
+// Subtracao do cronometro 
+global.subt_cronometro_dash  = 90;
+global.subt_cronometro_jump  = 100;
+global.subt_cronometro_invul = 50;
+global.subt_cronometro_esquiva  = 100;
+
+
+/* Timer Esquiva  */
+function cronometroEsquiva() 
+{
+	if (global._timeEsquiva < global.timeBase) { global._timeEsquiva--; /*image_alpha = .5; */}
+	if(global._timeEsquiva <= 0 ) {global._timeEsquiva = global.timeEsquiva; /*image_alpha = 1;*/}
+	//show_debug_message(global._timeEsquiva);
+}
+
 /* Timer Jump  */
 function cronometroJump() 
 {
@@ -26,8 +44,8 @@ function cronometroJump()
 /* Timer Dash  */
 function cronometroDash()
 {
-	if (global._timeDash < global.timeBase) { global._timeDash--;image_alpha = .5;}
-	if(global._timeDash <= 0 ) {global._timeDash = global.timeDash; image_alpha = 1;}
+	if (global._timeDash < global.timeBase) { global._timeDash--;/*image_alpha = .5;*/}
+	if(global._timeDash <= 0 ) {global._timeDash = global.timeDash;/* image_alpha = 1;*/}
 	//show_debug_message(global._timeDash);
 }
 

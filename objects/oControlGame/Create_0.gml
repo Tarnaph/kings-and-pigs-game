@@ -17,11 +17,6 @@ global._key = global.key;
 global.level = 1;
 global._level = 1;
 
-// Subtracao do cronometro 
-global.subt_cronometro_dash  = 90;
-global.subt_cronometro_jump  = 100;
-global.subt_cronometro_invul = 50;
-
 ///  @Desenha gui
 desenhar = function(_sprit, _x, _y, _scale)
 {

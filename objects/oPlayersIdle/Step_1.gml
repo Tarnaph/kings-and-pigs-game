@@ -8,6 +8,7 @@ inputs = {
 	runner:vk_shift,
 	dash:ord("F"),
 	menu:vk_escape,
+	esquiva:vk_control,
 	attack:ord("J")
 }
 
@@ -111,10 +112,8 @@ ataqueDePulo = function()
 // Atack dash
 dash = function()
 {
-	//global._timeInvulneravel -= global.subt_cronometro_invul;
-	velh = 3 * image_xscale;
+	velh = 2 * image_xscale;
 	velv = 0;
-	
 	var _inimigo = instance_place(x,y, oInimigoPai );
 	if(_inimigo && _inimigo.estado != "dano" &&  _inimigo.estado != "morto")
 	{
@@ -158,7 +157,7 @@ interagir_com_objeto = function(_obj,_estado,_destroi)
 // Andar
 function andar(_right, _left,_runner)
 { 
-	if((_right && _runner) ||( _left && _runner)){velh = (_right - _left) * (vel + 1); }
+	if((_right && _runner) ||( _left && _runner)){velh = (_right - _left) * (vel + 2); }
 	else {velh = (_right - _left) * vel; }
 }
 
@@ -172,11 +171,11 @@ function pularDaParede(_jump)
 {if(_jump && global._timeJump >=  global.timeJump) {velv = -velj; global._timeJump -= global.subt_cronometro_jump;}}
 
 
-// Dashar
+// Dashar Ataque
 function dashar(_dash,_estado)
 {
 	if(_dash && global._timeDash >= global.timeDash && estado != "fallwall") 
-	{ estado = _estado; global._timeDash -= global.subt_cronometro_dash ;}
+	{ estado = _estado; global._timeDash -= global.subt_cronometro_dash; /*global._timeInvulneravel--*/}
 }
 
 
@@ -188,7 +187,7 @@ function entrarPorta(_up)
 	}
 }
 
-
+// Pssar de level
 function levelUp()
 {
 	if(global._coin >= global._level * 10) 

@@ -23,15 +23,18 @@
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"inimigos","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5488F156_1","properties":[],"isDnd":false,"objectId":{"name":"oCanhao","path":"objects/oCanhao/oCanhao.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":128.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_F2F3193","properties":[],"isDnd":false,"objectId":{"name":"oCanhao","path":"objects/oCanhao/oCanhao.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":-1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":128.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_37892510","properties":[],"isDnd":false,"objectId":{"name":"oPorcoCaixa","path":"objects/oPorcoCaixa/oPorcoCaixa.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":352.0,"y":352.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4BEA1591","properties":[],"isDnd":false,"objectId":{"name":"oPorco","path":"objects/oPorco/oPorco.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":128.0,"y":64.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_168B9763","properties":[],"isDnd":false,"objectId":{"name":"oPorco","path":"objects/oPorco/oPorco.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":448.0,"y":64.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_379F618A","properties":[],"isDnd":false,"objectId":{"name":"oPorcoCaixaBoss","path":"objects/oPorcoCaixaBoss/oPorcoCaixaBoss.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":352.0,"y":352.0,},
       ],"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"portas","instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4091B414_6","properties":[
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"saida","path":"objects/oPorta/oPorta.yy",},"objectId":{"name":"oPorta","path":"objects/oPorta/oPorta.yy",},"value":"False",},
           ],"isDnd":false,"objectId":{"name":"oPorta","path":"objects/oPorta/oPorta.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":64.0,"y":352.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4D8BA00C_6","properties":[],"isDnd":false,"objectId":{"name":"oPorta","path":"objects/oPorta/oPorta.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":800.0,"y":352.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_557386E7","properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","propertyId":{"name":"saida","path":"objects/oPorta/oPorta.yy",},"objectId":{"name":"oPorta","path":"objects/oPorta/oPorta.yy",},"value":"True",},
+          ],"isDnd":false,"objectId":{"name":"oPorta","path":"objects/oPorta/oPorta.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":608.0,"y":352.0,},
       ],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"pocoes","instances":[],"visible":true,"depth":400,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritVisibility":true,"inheritSubLayers":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"colidores","instances":[
@@ -91,10 +94,11 @@
     {"name":"inst_4D94C89F","path":"rooms/rm_a1_09_boss/rm_a1_09_boss.yy",},
     {"name":"inst_F2F3193","path":"rooms/rm_a1_09_boss/rm_a1_09_boss.yy",},
     {"name":"inst_60E99103","path":"rooms/rm_a1_09_boss/rm_a1_09_boss.yy",},
-    {"name":"inst_37892510","path":"rooms/rm_a1_09_boss/rm_a1_09_boss.yy",},
     {"name":"inst_4BEA1591","path":"rooms/rm_a1_09_boss/rm_a1_09_boss.yy",},
     {"name":"inst_168B9763","path":"rooms/rm_a1_09_boss/rm_a1_09_boss.yy",},
     {"name":"inst_2256324C","path":"rooms/rm_a1_09_boss/rm_a1_09_boss.yy",},
+    {"name":"inst_557386E7","path":"rooms/rm_a1_09_boss/rm_a1_09_boss.yy",},
+    {"name":"inst_379F618A","path":"rooms/rm_a1_09_boss/rm_a1_09_boss.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
