@@ -7,12 +7,15 @@ if(gamepad_is_connected(0))
 	if(_menu) { room_goto(menu) };
 }
 
+// Script de controle de sons do jogo 
+controladoDeSons();
 
 // morto
 if(estado != "morto")
 {
 	if(estado != "hit")
 	{
+		
 		// Controladores do personagem
 		var _up,_left,_right,_down,_jump,_attack,_dash,_runner,_esquiva;
 		_up = keyboard_check(inputs.up);
@@ -76,8 +79,6 @@ if(estado != "morto")
 			estado = "esquiva"; 
 		}
 	
-		
-		
 		// Entra na porta
 		entrarPorta(_up);
 		
@@ -109,7 +110,7 @@ if(estado != "morto")
 	
 		// Sistema de dano
 		if (global._timeInvulneravel >= global.timeInvulneravel) { leva_dano_de_inimigo(oInimigoPai,"hit",false); leva_dano_de_projeto(oProjetoPai,"hit",false); }	
-		show_debug_message(global._timeInvulneravel)
+		//show_debug_message(global._timeInvulneravel)
 		
 	}
 	
@@ -119,14 +120,16 @@ if(estado != "morto")
 	if(_p_vida && global._vida < global.vida)
 	{ 
 		global._vida += 1;
-		instance_destroy(_p_vida);
+		_p_vida.estado = "destruido";
+		//instance_destroy(_p_vida);
 	}
 	// Pega _diamantes
 	_p_diamante = instance_place(x,y,oConsulDiamante);
 	if(_p_diamante && global._diamantes <= 2)
 	{ 
 		global._diamantes += 1;
-		instance_destroy(_p_diamante);
+		_p_diamante.estado = "destruido";
+		//instance_destroy(_p_diamante);
 	}
 	
 	// Pega coin
@@ -134,7 +137,8 @@ if(estado != "morto")
 	if(_p_coin)
 	{ 
 		global._coin += 1;
-		instance_destroy(_p_coin);
+		_p_coin.estado = "destruido";
+		//instance_destroy(_p_coin);
 	}
 	
 	// Pega Key
@@ -143,7 +147,8 @@ if(estado != "morto")
 	{ 
 		if (global._key < 0) { global._key = 0;}
 		global._key += 1;
-		instance_destroy(_p_key);
+		_p_key.estado = "destruido";
+		//instance_destroy(_p_key);
 	}
 #endregion
 }
@@ -275,8 +280,9 @@ switch(estado)
 			//global.vida += 1;
 			global._coin = global.coin;
 			if(instance_exists(oInimigoPai)){oInimigoPai.estado = "dano"}
+			estado = "idle";
 		}
-		estado = "idle";
+		
 	break;
 	
 }

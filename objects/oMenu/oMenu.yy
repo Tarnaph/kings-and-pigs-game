@@ -8,7 +8,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oMenuPai",
+    "path": "objects/oMenuPai/oMenuPai.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,

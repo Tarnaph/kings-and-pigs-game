@@ -8,7 +8,10 @@
   "managed": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oIntroTextoPai",
+    "path": "objects/oIntroTextoPai/oIntroTextoPai.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -28,7 +31,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "dialogos",
-    "path": "folders/Objects/dialogos.yy",
+    "name": "intros",
+    "path": "folders/Objects/textos/intros.yy",
   },
 }

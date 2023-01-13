@@ -1,6 +1,3 @@
-global.music = song_bgm;
-global._music = song_bgm;
-
 global.coin = 0;
 global._coin = global.coin;
 
@@ -38,5 +35,7 @@ function resetaStatus()
 	global._level = global.level;
 	global._coin = global.coin;
 }
+
+
 
 

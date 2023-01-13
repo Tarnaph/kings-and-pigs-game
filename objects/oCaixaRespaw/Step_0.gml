@@ -65,7 +65,7 @@ switch(estado)
 				}
 			}
 			
-			if(global._level >= 1)
+			if(global._level >= 6)
 			{
 				if(!instance_exists(oMage))
 				{

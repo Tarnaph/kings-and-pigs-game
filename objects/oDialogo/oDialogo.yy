@@ -30,7 +30,7 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "dialogos",
-    "path": "folders/Objects/dialogos.yy",
+    "name": "textos",
+    "path": "folders/Objects/textos.yy",
   },
 }

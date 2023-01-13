@@ -4,7 +4,7 @@
   "name": "song_bgm",
   "conversionMode": 0,
   "compression": 0,
-  "volume": 0.0,
+  "volume": 0.5,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -15,7 +15,7 @@
     "path": "audiogroups/audiogroup_default",
   },
   "soundFile": "song_bgm.mp3",
-  "duration": 8.124062,
+  "duration": 278.85724,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
