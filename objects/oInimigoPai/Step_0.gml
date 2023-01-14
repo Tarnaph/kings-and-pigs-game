@@ -1,3 +1,7 @@
+// Script de controle de sons do jogo 
+controladoDeSons();
+
+
 /*switch(estado)
 {
 	case "pegabomba":

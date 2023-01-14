@@ -279,7 +279,7 @@ switch(estado)
 			global._level += 1;
 			//global.vida += 1;
 			global._coin = global.coin;
-			if(instance_exists(oInimigoPai)){oInimigoPai.estado = "dano"}
+			//if(instance_exists(oInimigoPai)){oInimigoPai.estado = "dano"}
 			estado = "idle";
 		}
 		

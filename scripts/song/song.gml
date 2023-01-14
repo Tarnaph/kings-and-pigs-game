@@ -14,6 +14,12 @@ function tocaSFXPauseAndPlay(_sfx,_n,_tf)
 	audio_play_sound(_sfx,_n,_tf);
 }
 
+// Troca de musica qts vezes necessitar
+function tocaSFXdPlay(_sfx,_n,_tf)
+{
+	audio_play_sound(_sfx,_n,_tf);
+}
+
 // Toca musica tema
 tocaSFX(song_bgm,0,true)
 
@@ -73,5 +79,29 @@ function controladoDeSons()
 		if(estado != "idle") { tocaSFXPauseAndPlay(sfx_consumiveis, 0, false);} /*else { audio_stop_sound(sfx_consumiveis); }*/
 	}
 	
+	// Sons de consumiveis
+	with(oPorta)
+	{
+		if(estado != "idle") { tocaSFXPauseAndPlay(sfx_door, 0, false);} /*else { audio_stop_sound(sfx_consumiveis); }*/
+	}
+	
+	// Sons do porco
+	with(oInimigoPai)
+	{
+		if(estado == "idle") { tocaSFXPauseAndPlay(sfx_pig_idle, 0, false);} /*else { audio_stop_sound(sfx_pig_idle); }*/
+		if(estado == "patrulha" && velh != 0) { tocaSFXPauseAndPlay(sfx_pig_run, 0, false);}/* else { audio_stop_sound(sfx_pig_run); }*/
+		//if(estado == "run") { tocaSFX(sfx_pig_idle, 0, false);} else { audio_stop_sound(sfx_pig_idle); }
+		if(estado == "ataca") { tocaSFXPauseAndPlay(sfx_pig_attack, 0, false);} /*else { audio_stop_sound(sfx_pig_attack); }*/
+		if(estado == "dano") { tocaSFXPauseAndPlay(sfx_pig_hit, 0, false);} /*else { audio_stop_sound(sfx_pig_hit); }*/
+		
+	}
+/*	
+idle	
+patrulha
+run
+ataca
+dano
+morto
+*/
 }
 	

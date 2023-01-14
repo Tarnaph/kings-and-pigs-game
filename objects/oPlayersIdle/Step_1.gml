@@ -192,7 +192,6 @@ function levelUp()
 {
 	if(global._coin >= global._level * 10) 
 	{ 
-		
 		estado = "level" 
 	};
 }

@@ -21,7 +21,7 @@ if(global._timeDash >= 120) {criar_box_skill(oPlayersIdle,s_box_skill_dash_on, 1
 
 // vida
 _x = 5
-repeat(global._vida) { criar_box_skill(oPlayersIdle,s_gui_coracao, _x, -45); _x -= 5}
+//repeat(global._vida) { criar_box_skill(oPlayersIdle,s_gui_coracao, _x, -45); _x -= 5}
 
 //key
 repeat(global._key){ criar_box_skill(oPlayersIdle,s_artefastos_key, _x, -25); }

@@ -7,7 +7,7 @@ controladoDeSons();
 switch(estado)
 {
 	case "idle":
-		show_debug_message("consumivel idle");
+		//show_debug_message("consumivel idle");
 	break;
 	case "destruido":
 		instance_destroy();
